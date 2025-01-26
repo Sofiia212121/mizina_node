@@ -11,98 +11,54 @@
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 30359,
+          "user": 35968,
           "nice": 0,
-          "sys": 124093,
-          "idle": 6484250,
-          "irq": 34093
+          "sys": 68750,
+          "idle": 8361796,
+          "irq": 13109
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 33031,
+          "user": 36281,
           "nice": 0,
-          "sys": 23921,
-          "idle": 6581625,
-          "irq": 1312
+          "sys": 29406,
+          "idle": 8400703,
+          "irq": 1406
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 244531,
+          "user": 205796,
           "nice": 0,
-          "sys": 84609,
-          "idle": 6309437,
-          "irq": 1125
+          "sys": 79250,
+          "idle": 8181343,
+          "irq": 1093
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 66203,
+          "user": 56156,
           "nice": 0,
-          "sys": 39546,
-          "idle": 6532812,
-          "irq": 359
+          "sys": 29125,
+          "idle": 8381109,
+          "irq": 250
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 43203,
+          "user": 46484,
           "nice": 0,
-          "sys": 34812,
-          "idle": 6560562,
-          "irq": 593
-        }
-      },
-      {
-        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        "speed": 1996,
-        "times": {
-          "user": 41953,
-          "nice": 0,
-          "sys": 42531,
-          "idle": 6554078,
-          "irq": 1031
-        }
-      },
-      {
-        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        "speed": 1996,
-        "times": {
-          "user": 190359,
-          "nice": 0,
-          "sys": 166828,
-          "idle": 6281390,
-          "irq": 1578
-        }
-      },
-      {
-        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        "speed": 1996,
-        "times": {
-          "user": 139343,
-          "nice": 0,
-          "sys": 152328,
-          "idle": 6346906,
-          "irq": 1281
-        }
-      },
-      {
-        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        "speed": 1996,
-        "times": {
-          "user": 35281,
-          "nice": 0,
-          "sys": 24640,
-          "idle": 6578656,
+          "sys": 35843,
+          "idle": 8384062,
           "irq": 515
         }
       },
@@ -110,54 +66,65 @@
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 30718,
+          "user": 40937,
           "nice": 0,
-          "sys": 28140,
-          "idle": 6579703,
-          "irq": 843
+          "sys": 22687,
+          "idle": 8402765,
+          "irq": 406
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 38984,
+          "user": 201937,
           "nice": 0,
-          "sys": 22703,
-          "idle": 6576890,
-          "irq": 687
+          "sys": 111812,
+          "idle": 8152640,
+          "irq": 1093
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 46359,
+          "user": 145734,
           "nice": 0,
-          "sys": 21906,
-          "idle": 6570312,
-          "irq": 953
+          "sys": 107609,
+          "idle": 8213046,
+          "irq": 906
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 94187,
+          "user": 39281,
           "nice": 0,
-          "sys": 51765,
-          "idle": 6492609,
-          "irq": 1468
+          "sys": 23546,
+          "idle": 8403562,
+          "irq": 296
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 51546,
+          "user": 32703,
           "nice": 0,
-          "sys": 22265,
-          "idle": 6564765,
+          "sys": 27859,
+          "idle": 8405828,
+          "irq": 625
+        }
+      },
+      {
+        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
+        "speed": 1996,
+        "times": {
+          "user": 44968,
+          "nice": 0,
+          "sys": 24765,
+          "idle": 8396656,
           "irq": 500
         }
       },
@@ -165,36 +132,69 @@
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 50031,
+          "user": 38515,
           "nice": 0,
-          "sys": 23734,
-          "idle": 6564796,
-          "irq": 843
+          "sys": 20109,
+          "idle": 8407765,
+          "irq": 453
         }
       },
       {
         "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
         "speed": 1996,
         "times": {
-          "user": 28312,
+          "user": 132203,
           "nice": 0,
-          "sys": 34781,
-          "idle": 6575484,
-          "irq": 5031
+          "sys": 36968,
+          "idle": 8297218,
+          "irq": 796
+        }
+      },
+      {
+        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
+        "speed": 1996,
+        "times": {
+          "user": 54062,
+          "nice": 0,
+          "sys": 24640,
+          "idle": 8387687,
+          "irq": 421
+        }
+      },
+      {
+        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
+        "speed": 1996,
+        "times": {
+          "user": 74906,
+          "nice": 0,
+          "sys": 35890,
+          "idle": 8355593,
+          "irq": 906
+        }
+      },
+      {
+        "model": "AMD Ryzen 7 7730U with Radeon Graphics         ",
+        "speed": 1996,
+        "times": {
+          "user": 27687,
+          "nice": 0,
+          "sys": 29234,
+          "idle": 8409468,
+          "irq": 3515
         }
       }
     ]
   },
   {
-    "totalMemory": 9342095360
+    "freeMemory": 9937817600
   },
   {
-    "freeMemory": 16486756352
+    "totalMemory": 16486756352
   },
   {
     "userDir": "C:\\Users\\user"
   },
   {
-    "uptime": 6638.718
+    "uptime": 9775.187
   }
 ]

@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import os from "os";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,96 +9,13 @@ const __dirname = path.dirname(__filename);
 const filePath = path.join(__dirname, "hw1.txt");
 
 const arrOS = [
-  { platform: "win32" },
-  { architecture: "x64" },
-  {
-    cpu: [
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 30359, nice: 0, sys: 124093, idle: 6484250, irq: 34093 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 33031, nice: 0, sys: 23921, idle: 6581625, irq: 1312 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 244531, nice: 0, sys: 84609, idle: 6309437, irq: 1125 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 66203, nice: 0, sys: 39546, idle: 6532812, irq: 359 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 43203, nice: 0, sys: 34812, idle: 6560562, irq: 593 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 41953, nice: 0, sys: 42531, idle: 6554078, irq: 1031 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 190359, nice: 0, sys: 166828, idle: 6281390, irq: 1578 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 139343, nice: 0, sys: 152328, idle: 6346906, irq: 1281 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 35281, nice: 0, sys: 24640, idle: 6578656, irq: 515 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 30718, nice: 0, sys: 28140, idle: 6579703, irq: 843 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 38984, nice: 0, sys: 22703, idle: 6576890, irq: 687 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 46359, nice: 0, sys: 21906, idle: 6570312, irq: 953 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 94187, nice: 0, sys: 51765, idle: 6492609, irq: 1468 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 51546, nice: 0, sys: 22265, idle: 6564765, irq: 500 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 50031, nice: 0, sys: 23734, idle: 6564796, irq: 843 },
-      },
-      {
-        model: "AMD Ryzen 7 7730U with Radeon Graphics         ",
-        speed: 1996,
-        times: { user: 28312, nice: 0, sys: 34781, idle: 6575484, irq: 5031 },
-      },
-    ],
-  },
-  { totalMemory: 9342095360 },
-  { freeMemory: 16486756352 },
-  { userDir: "C:\\Users\\user" },
-  { uptime: 6638.718 },
+  { platform: os.platform() },
+  { architecture: os.arch() },
+  { cpu: os.cpus() },
+  { freeMemory: os.freemem() },
+  { totalMemory: os.totalmem() },
+  { userDir: os.homedir() },
+  { uptime: os.uptime() },
 ];
 
 fs.writeFile(filePath, JSON.stringify(arrOS, null, 2), (err) => {

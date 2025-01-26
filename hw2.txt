@@ -1,0 +1,3 @@
+{"count":4,"guessedCompNum":3}
+{"count":4,"guessedCompNum":9}
+{"count":1,"guessedCompNum":5}
