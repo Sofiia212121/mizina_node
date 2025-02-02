@@ -56,20 +56,20 @@ h1 {
 
 #form {
     display: flex;
-    flex-direction: column;
     gap: 15px;
 }
 
-#num1,
-#num2 {
+#a, #b, #c {
     padding: 10px;
+    width: 100px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
 }
 
-#num1:focus,
-#num2:focus {
+#a:focus,
+#b:focus,
+#c:focus {
     outline: none;
     border-color: #70cad6;
 }
@@ -96,4 +96,25 @@ h1 {
     font-size: 24px;
     color: #353434;
     font-weight: bold;
+}
+
+#preloader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+.preloader img {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+.hidden {
+    display: none;
 }

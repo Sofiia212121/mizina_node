@@ -33,6 +33,8 @@ function sendFileContent(response, filename) {
   });
 }
 
+const messages = [];
+
 const server = createServer((req, res) => {
   const baseURL = `http://${req.headers.host}`;
   const urlObj = new URL(req.url, baseURL);
@@ -53,6 +55,17 @@ const server = createServer((req, res) => {
     case "/summ":
       sendFileContent(res, "summ.html");
       break;
+    case "/chat":
+      sendFileContent(res, "chat.html");
+      break;
+    case "/chatAPI/sendMassage":
+      const senderApiUrl = new URL(`http:/${req.url}`);
+      const message = new URLSearchParams(senderApiUrl.searchParams).get(
+        "message"
+      );
+      console.log("message received:", message);
+      res.end(JSON.stringify("thanks"));
+      break;
     case "/api/someData":
       const num1 = parseFloat(urlObj.searchParams.get("num1"));
       const num2 = parseFloat(urlObj.searchParams.get("num2"));
@@ -60,6 +73,30 @@ const server = createServer((req, res) => {
       const result = { result: num1 + num2 };
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(result));
+      break;
+    case "/api/quadraticEquation":
+      const a = parseFloat(urlObj.searchParams.get("a"));
+      const b = parseFloat(urlObj.searchParams.get("b"));
+      const c = parseFloat(urlObj.searchParams.get("c"));
+
+      const discrim = b * b - 4 * a * c;
+      let equationResult;
+
+      if (discrim > 0) {
+        const root1 = (-b + Math.sqrt(discrim)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discrim)) / (2 * a);
+        equationResult = `x1 = ${root1}, x2 = ${root2}`;
+      } else if (discrim === 0) {
+        const root = -b / (2 * a);
+        equationResult = `x = ${root}`;
+      } else {
+        equationResult = "No real roots";
+      }
+
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({ result: equationResult, discriminant: discrim })
+      );
       break;
     default:
       const ext = path.extname(url);
