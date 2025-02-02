@@ -15,7 +15,21 @@ $chatForm.addEventListener("submit", (e) => {
         }
       })
       .then((data) => {
-        $chatMessages.append(data);
+        $chatMessages.innerHTML = "";
+
+        data.forEach((msg) => {
+          const messageElem = document.createElement("p");
+          messageElem.classList.add("chat-message");
+          messageElem.textContent = `${msg.message} at ${msg.time}`;
+          $chatMessages.appendChild(messageElem);
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        const errorMessage = document.createElement("p");
+        errorMessage.classList.add("error-message");
+        errorMessage.textContent = "Something went wrong. Please try again.";
+        $chatMessages.appendChild(errorMessage);
       });
   }
 });

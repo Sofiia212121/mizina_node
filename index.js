@@ -63,8 +63,15 @@ const server = createServer((req, res) => {
       const message = new URLSearchParams(senderApiUrl.searchParams).get(
         "message"
       );
-      console.log("message received:", message);
-      res.end(JSON.stringify("thanks"));
+
+      messages.push({ message, time: new Date().toLocaleTimeString() });
+
+      if (messages.length > 20) {
+        messages.shift();
+      }
+
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(messages));
       break;
     case "/api/someData":
       const num1 = parseFloat(urlObj.searchParams.get("num1"));
