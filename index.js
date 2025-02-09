@@ -4,6 +4,9 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 function sendFileContent(response, filename) {
   const contentTypes = {
     ".html": "text/html",
@@ -15,9 +18,6 @@ function sendFileContent(response, filename) {
     ".svg": "image/svg+xml",
     ".gif": "image/gif",
   };
-
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
 
   fs.readFile(path.join(__dirname, "public", filename), "utf8", (err, data) => {
     if (err) {
@@ -61,6 +61,72 @@ const server = createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(result));
       break;
+<<<<<<< Updated upstream
+=======
+    case "/api/quadraticEquation":
+      const a = parseFloat(urlObj.searchParams.get("a"));
+      const b = parseFloat(urlObj.searchParams.get("b"));
+      const c = parseFloat(urlObj.searchParams.get("c"));
+
+      const discrim = b * b - 4 * a * c;
+      let equationResult;
+
+      if (discrim > 0) {
+        const root1 = (-b + Math.sqrt(discrim)) / (2 * a);
+        const root2 = (-b - Math.sqrt(discrim)) / (2 * a);
+        equationResult = `x1 = ${root1}, x2 = ${root2}`;
+      } else if (discrim === 0) {
+        const root = -b / (2 * a);
+        equationResult = `x = ${root}`;
+      } else {
+        equationResult = "No real roots";
+      }
+
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(
+        JSON.stringify({ result: equationResult, discriminant: discrim })
+      );
+      break;
+    case "/login":
+      sendFileContent(res, "login.html");
+      break;
+    case "/api/login":
+      const username = urlObj.searchParams.get("userName");
+      const password = urlObj.searchParams.get("userPass");
+
+      if (!username || !password) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ success: false }));
+        break;
+      }
+
+      fs.readFile(path.join(__dirname, "users.json"), "utf8", (err, data) => {
+        if (err) {
+          res.writeHead(500, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ success: false }));
+          return;
+        }
+
+        const users = JSON.parse(data);
+        let userFound = false;
+
+        for (const user of users) {
+          if (user.username === username && user.password === password) {
+            userFound = true;
+            break;
+          }
+        }
+
+        if (userFound) {
+          res.writeHead(200, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ success: true }));
+        } else {
+          res.writeHead(401, { "Content-Type": "application/json" });
+          res.end(JSON.stringify({ success: false }));
+        }
+      });
+      break;
+>>>>>>> Stashed changes
     default:
       const ext = path.extname(url);
       if (!ext) {

@@ -11,13 +11,23 @@
         <a href="/">Home</a>
         <a href="/contacts">Contacts</a>
         <a href="/summ">Summ</a>
-<<<<<<< Updated upstream
-=======
         <a href="/chat">Chat</a>
         <a href="/login">Login</a>
->>>>>>> Stashed changes
       </nav>
     </header>
-    <h1>Contacts page</h1>
+    <h1>CHAT</h1>
+    <form action="#" id="chat-form">
+      <textarea
+        name="message"
+        id="message"
+        cols="30"
+        rows="10"
+        placeholder="Enter text to send"
+      ></textarea>
+      <button type="submit" id="send-btn">Send</button>
+      <div id="chat-messages"></div>
+    </form>
+
+    <script src="script/chat.js"></script>
   </body>
 </html>
