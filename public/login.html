@@ -1,23 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-    <h1>Login</h1>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/contacts">Contacts</a>
+        <a href="/summ">Summ</a>
+        <a href="/chat">Chat</a>
+        <a href="/login">Login</a>
+      </nav>
+    </header>
+
+    <h1>LOGIN</h1>
     <form id="loginForm">
-        <label for="username">User Name:</label>
-        <input type="text" id="userName" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" id="userPass" required>
-        <br>
-        <button id="send-btn" type="submit">Login</button>
+      <label for="username">User Name:</label>
+      <input type="text" id="userName" required />
+      <br />
+      <label for="password">Password:</label>
+      <input type="password" id="userPass" required />
+      <br />
+      <button id="send-btn" type="submit">Login</button>
     </form>
 
     <script src="./script/login.js"></script>
-</body>
+  </body>
 </html>

@@ -56,20 +56,22 @@ h1 {
 
 #form {
     display: flex;
-    flex-direction: column;
     gap: 15px;
 }
 
-#num1,
-#num2 {
+#a,
+#b,
+#c {
     padding: 10px;
+    width: 100px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 16px;
 }
 
-#num1:focus,
-#num2:focus {
+#a:focus,
+#b:focus,
+#c:focus {
     outline: none;
     border-color: #70cad6;
 }
@@ -183,4 +185,92 @@ hr {
     border: none;
     border-top: 1px solid #ccc;
     margin: 10px 0;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    resize: none;
+    outline: none;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+textarea:focus {
+    border-color: #70cad6;
+}
+
+#send-btn {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding: 12px;
+    background-color: #52a7b3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+#send-btn:hover {
+    background-color: #388994;
+}
+
+#chat-messages {
+    margin-top: 20px;
+    max-height: 200px;
+    overflow-y: auto;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.chat-message {
+    padding: 8px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+
+#loginForm {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #70cad6;
+}
+
+.welcome-title {
+    margin-top: 100px;
+    font-size: 82px;
+    background: linear-gradient(330deg, #a0d9e1 0%, #7cc0ca 25%, #52a7b3 50%, #318895 75%, #1b6c78 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

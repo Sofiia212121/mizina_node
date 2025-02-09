@@ -33,6 +33,8 @@ function sendFileContent(response, filename) {
   });
 }
 
+const messages = [];
+
 const server = createServer((req, res) => {
   const baseURL = `http://${req.headers.host}`;
   const urlObj = new URL(req.url, baseURL);
@@ -53,6 +55,25 @@ const server = createServer((req, res) => {
     case "/summ":
       sendFileContent(res, "summ.html");
       break;
+
+    case "/chat":
+      sendFileContent(res, "chat.html");
+      break;
+    case "/chatAPI/sendMassage":
+      const senderApiUrl = new URL(`http:/${req.url}`);
+      const message = new URLSearchParams(senderApiUrl.searchParams).get(
+        "message"
+      );
+
+      messages.push({ message, time: new Date().toLocaleTimeString() });
+
+      if (messages.length > 20) {
+        messages.shift();
+      }
+
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.end(JSON.stringify(messages));
+      break;
     case "/api/someData":
       const num1 = parseFloat(urlObj.searchParams.get("num1"));
       const num2 = parseFloat(urlObj.searchParams.get("num2"));
@@ -61,8 +82,6 @@ const server = createServer((req, res) => {
       res.writeHead(200, { "Content-Type": "application/json" });
       res.end(JSON.stringify(result));
       break;
-<<<<<<< Updated upstream
-=======
     case "/api/quadraticEquation":
       const a = parseFloat(urlObj.searchParams.get("a"));
       const b = parseFloat(urlObj.searchParams.get("b"));
@@ -126,7 +145,6 @@ const server = createServer((req, res) => {
         }
       });
       break;
->>>>>>> Stashed changes
     default:
       const ext = path.extname(url);
       if (!ext) {

@@ -11,27 +11,36 @@
         <a href="/">Home</a>
         <a href="/contacts">Contacts</a>
         <a href="/summ">Summ</a>
-<<<<<<< Updated upstream
-=======
         <a href="/chat">Chat</a>
         <a href="/login">Login</a>
->>>>>>> Stashed changes
       </nav>
     </header>
 
     <main>
-      <h1>Calculate the Sum</h1>
+      <h1>Quadratic Equation</h1>
       <form id="form">
-        <label for="num1">Number 1:</label>
-        <input type="number" id="num1" name="num1" required />
+        <label for="a">a:</label>
+        <input type="number" id="a" name="a" required />
 
-        <label for="num2">Number 2:</label>
-        <input type="number" id="num2" name="num2" required />
+        <label for="b">b:</label>
+        <input type="number" id="b" name="b" required />
+
+        <label for="c">c:</label>
+        <input type="number" id="c" name="c" required />
 
         <button type="submit" class="submit-btn">Calculate</button>
       </form>
 
       <p id="result">The result will appear here.</p>
+
+      <div id="preloader" class="hidden">
+        <div class="preloader">
+          <img
+            src="https://pear-advert.ru/images/uploads/blog/273/30.gif"
+            alt="Waiting..."
+          />
+        </div>
+      </div>
     </main>
 
     <script src="script/script.js"></script>

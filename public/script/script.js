@@ -1,28 +1,37 @@
-const API_URL = "http://localhost:3000/api/someData";
+const API_URL = "http://localhost:3000/api/quadraticEquation";
 const form = document.querySelector("#form");
 const result = document.querySelector("#result");
+const preloader = document.querySelector("#preloader");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const num1 = form.querySelector("#num1").value;
-  const num2 = form.querySelector("#num2").value;
+  const a = form.querySelector("#a").value;
+  const b = form.querySelector("#b").value;
+  const c = form.querySelector("#c").value;
 
-  if (num1 !== "" && num2 !== "") {
-    const url = `${API_URL}?num1=${num1}&num2=${num2}`;
+  if (a !== "" && b !== "" && c !== "") {
+    const url = `${API_URL}?a=${a}&b=${b}&c=${c}`;
 
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data && data.result) {
-          result.textContent = data.result;
-        } else {
-          result.textContent = "No valid result returned";
-        }
-      })
-      .catch((error) => {
-        result.textContent = "Error fetching data";
-      });
+    result.textContent = "";
+    preloader.classList.remove("hidden");
+
+    setTimeout(() => {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data && data.result) {
+            result.textContent = `Discriminant: ${data.discriminant}. Roots: ${data.result}`;
+          } else {
+            result.textContent = "No valid result returned";
+          }
+          preloader.classList.add("hidden");
+        })
+        .catch((error) => {
+          result.textContent = "Error fetching data";
+          preloader.classList.add("hidden");
+        });
+    }, 2000);
   } else {
     result.textContent = "Please enter valid numbers";
   }
