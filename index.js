@@ -1,86 +1,33 @@
 const http = require("http");
-const url = require("url");
 const fs = require("fs");
 const path = require("path");
+const express = require("express");
+const { Server } = require("socket.io");
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server);
 
 const messages = [];
 
-const server = http.createServer((req, res) => {
-  const reqURL = url.parse(req.url, true);
-  const pathname = reqURL.pathname;
-  const searchParams = new URLSearchParams(reqURL.search);
+app.use(express.static(path.join(__dirname, 'public')));
 
-  switch (pathname) {
-    case "/":
-      fs.readFile(path.join(__dirname, "index.html"), "utf8", (err, data) => {
-        if (err) {
-          console.error(err);
-          res.writeHead(404);
-          res.end("error");
-        }
-        res.writeHead(200, {
-          "Content-Type": "text/html",
-        });
-        res.end(data);
-      });
-      break;
-    case "/newMessage":
-      const username = searchParams.get("username");
-      const text = searchParams.get("text");
-      const userId = searchParams.get("userId");
-      const newMessage = { userId, username, text };
-
-      if (userId && username && text) {
-        messages.push(newMessage);
-        const messagesResponse = JSON.stringify(messages);
-        res.writeHead(200, {
-          "Content-Type": "application/json",
-        });
-        res.end(messagesResponse);
-      }
-      break;
-    case "/getMessages":
-      res.writeHead(200, {
-        "Content-Type": "application/json",
-      });
-
-      const messagesResponse = JSON.stringify(messages);
-      res.end(messagesResponse);
-      break;
-    case "/style.css":
-      fs.readFile(path.join(__dirname, "style.css"), "utf8", (err, data) => {
-        if (err) {
-          console.error(err);
-          res.writeHead(404);
-          res.end("error");
-        }
-        res.writeHead(200, {
-          "Content-Type": "text/css",
-        });
-        res.end(data);
-      });
-      break;
-    case "/front.js":
-      fs.readFile(path.join(__dirname, "front.js"), "utf8", (err, data) => {
-        if (err) {
-          console.error(err);
-          res.writeHead(404);
-          res.end("error");
-        }
-        res.writeHead(200, {
-          "Content-Type": "text/javascript",
-        });
-        res.end(data);
-      });
-      break;
-    case "/favicon.ico":
-      res.writeHead(404);
-      res.end("no icon");
-      break;
-    default:
-      res.writeHead(404, { "Content-Type": "text/plain" });
-      res.end("404");
-  }
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-server.listen(5000, () => {});
+io.on("connection", (socket) => {
+  socket.emit("loadMessages", messages);
+
+  socket.on("newMessage", ({ userId, username, text }) => {
+    if (userId && username && text) {
+      const newMessage = { userId, username, text };
+      messages.push(newMessage);
+      io.emit("message", newMessage);
+    }
+  });
+});
+
+server.listen(3000, () => {
+  console.log("Server is running on port 3000");
+});
